@@ -1,0 +1,349 @@
+version: '3'
+
+services:
+  BR01:
+    image: frrouting/frr:latest
+    hostname: BR01
+    container_name: BR01
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+      net.ipv4.ip_forward: 1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    volumes:
+      - ./config/BR01:/etc/frr
+      - ./daemons:/etc/frr/daemons
+    networks:
+      interas0:
+        ipv4_address: "10.10.10.253"
+      interas1:
+        ipv4_address: "10.10.100.254"
+      router1:
+        ipv4_address: "10.10.11.253"
+      router2:
+        ipv4_address: "10.10.12.253"
+  BR02:
+    image: frrouting/frr:latest
+    hostname: BR02
+    container_name: BR02
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+      net.ipv4.ip_forward: 1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    volumes:
+      - ./config/BR02:/etc/frr
+      - ./daemons:/etc/frr/daemons
+    networks:
+      interas0:
+        ipv4_address: "10.10.10.254"
+      interas2:
+        ipv4_address: "10.10.200.254"
+      router3:
+        ipv4_address: "10.10.13.253"
+      router4:
+        ipv4_address: "10.10.14.253"
+
+  BR03:
+    image: frrouting/frr:latest
+    hostname: BR03
+    container_name: BR03
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+      net.ipv4.ip_forward: 1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    volumes:
+      - ./config/BR03:/etc/frr
+      - ./daemons:/etc/frr/daemons
+    networks:
+      interas1:
+        ipv4_address: "10.10.100.253"
+      interas2:
+        ipv4_address: "10.10.200.253"
+      client0:
+        ipv4_address: "10.10.0.254"
+
+  C0:
+    image: nicolaka/netshoot:latest
+    command: tail -f /dev/null
+    hostname: C0
+    container_name: C0
+    privileged: true
+    extra_hosts:
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    networks:
+      client0:
+        ipv4_address: "10.10.0.2"
+
+  R1:
+    image: frrouting/frr:latest
+    hostname: R1
+    container_name: R1
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+      net.ipv4.ip_forward: 1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    volumes:
+      - ./config/R1:/etc/frr
+      - ./daemons:/etc/frr/daemons
+    networks:
+      router1:
+        ipv4_address: "10.10.11.254"
+      client1:
+        ipv4_address: "10.10.1.254"
+ 
+  C1:
+    image: nicolaka/netshoot:latest
+    command: tail -f /dev/null
+    hostname: C1
+    container_name: C1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    networks:
+      client1:
+        ipv4_address: "10.10.1.2"
+
+  R2:
+    image: frrouting/frr:latest
+    hostname: R2
+    container_name: R2
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+      net.ipv4.ip_forward: 1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    volumes:
+      - ./config/R2:/etc/frr
+      - ./daemons:/etc/frr/daemons
+    networks:
+      router2:
+        ipv4_address: "10.10.12.254"
+      client2:
+        ipv4_address: "10.10.2.254"
+ 
+  C2:
+    image: nicolaka/netshoot:latest
+    command: tail -f /dev/null
+    hostname: C2
+    container_name: C2
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    networks:
+      client2:
+        ipv4_address: "10.10.2.2"
+
+  R3:
+    image: frrouting/frr:latest
+    hostname: R3
+    container_name: R3
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+      net.ipv4.ip_forward: 1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    volumes:
+      - ./config/R3:/etc/frr
+      - ./daemons:/etc/frr/daemons
+    networks:
+      router3:
+        ipv4_address: "10.10.13.254"
+      client3:
+        ipv4_address: "10.10.3.254"
+ 
+  C3:
+    image: nicolaka/netshoot:latest
+    command: tail -f /dev/null
+    hostname: C3
+    container_name: C3
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    networks:
+      client3:
+        ipv4_address: "10.10.3.2"
+  
+  R4:
+    image: frrouting/frr:latest
+    hostname: R4
+    container_name: R4
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+      net.ipv4.ip_forward: 1
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    volumes:
+      - ./config/R4:/etc/frr
+      - ./daemons:/etc/frr/daemons
+    networks:
+      router4:
+        ipv4_address: "10.10.14.254"
+      client4:
+        ipv4_address: "10.10.4.254"
+ 
+  C4:
+    image: nicolaka/netshoot:latest
+    command: tail -f /dev/null
+    hostname: C4
+    container_name: C4
+    privileged: true
+    extra_hosts:
+      - "C0:10.10.0.2"
+      - "C1:10.10.1.2"
+      - "C2:10.10.2.2"
+      - "C3:10.10.3.2"
+      - "C4:10.10.4.2"
+      - "R1:10.10.11.254"
+      - "R2:10.10.12.254"
+      - "R3:10.10.13.254"
+      - "R4:10.10.14.254"
+    networks:
+      client4:
+        ipv4_address: "10.10.4.2"
+
+networks:
+  interas0:
+    ipam: 
+      config:
+        - subnet: 10.10.10.0/24
+  interas1:
+    ipam: 
+      config:
+        - subnet: 10.10.100.0/24
+  interas2:
+    ipam: 
+      config:
+        - subnet: 10.10.200.0/24
+  router1:
+    ipam: 
+      config:
+        - subnet: 10.10.11.0/24
+  router2:
+    ipam: 
+      config:
+        - subnet: 10.10.12.0/24
+  router3:
+    ipam: 
+      config:
+        - subnet: 10.10.13.0/24
+  router4:
+    ipam: 
+      config:
+        - subnet: 10.10.14.0/24
+  client0:
+    ipam:
+      config:
+        - subnet: 10.10.0.0/24
+  client1:
+    ipam:
+      config:
+        - subnet: 10.10.1.0/24
+  client2:
+    ipam:
+      config:
+        - subnet: 10.10.2.0/24
+  client3:
+    ipam:
+      config:
+        - subnet: 10.10.3.0/24
+  client4:
+    ipam:
+      config:
+        - subnet: 10.10.4.0/24
