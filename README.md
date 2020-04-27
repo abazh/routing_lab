@@ -9,17 +9,17 @@ To build this IP routing lab, you need to install [Docker Desktop for Mac or Win
 
 ## Clone Repo & Run docker-compose
 
-- Prepare a directory where you will clone this repo and do git clone https://github.com/abazh/routing_lab.git
+- Prepare a directory where you will clone this repo and do **git clone https://github.com/abazh/routing_lab.git**
 - Go to directory of the cloned repo
-- Run docker-compose -up -d
-- Run the script route_clean.sh or route_clean.ps1 (windows powershell)
+- Run **docker-compose -up -d**
+- Run the **script route_clean.sh** or **route_clean.ps1** (windows powershell)
 
 ## Configure Routers
 
-There 3 IGP routers for each ASN 100, 200, and 300:
+There 3 IGP routers for each **ASN 100, 200, and 300**:
 To configure each router, you just need to run command in your powershell terminal console or iterm terminal console:
- docker exec -it R1 vtysh
+- **docker exec -it R1 vtysh**
 
 To test routing between client you can do traceroute from each client
- docker exec -it C1 traceroute -n C10
+- **docker exec -it C1 traceroute -n C10**
  
