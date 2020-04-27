@@ -1,12 +1,11 @@
 # IP Routing Lab
 
 This is IP Routing lab consist 3 ASes where each AS has 3 routers and 2 clients using FRR docker image. Please refer to the topology when you are going to configure each routers.
-![Image of Topology]
-(https://github.com/abazh/routing_lab/blob/master/Topology_Adjar2020.jpg)
+![Image of Topology](Topology_Adjar2020.jpg)
 
 ## Prerequisite
 
-To build this IP routing lab, you need to install [Docker Desktop for Mac or Windows] (https://www.docker.com/products/docker-desktop)
+To build this IP routing lab, you need to install [Docker Desktop for Mac or Windows](https://www.docker.com/products/docker-desktop)
 
 ## Clone Repo & Run docker-compose
 
