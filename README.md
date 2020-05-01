@@ -11,11 +11,11 @@ To build this IP routing lab, you need to install [Docker Desktop for Mac or Win
 
 - Prepare a directory where you will clone this repo and do `git clone https://github.com/abazh/routing_lab.git`
 - Go to directory of the cloned repo
-- Run `docker-compose -up -d`
+- Run `docker-compose up -d`
 > This docker-compose command will generate all docker containers (6 clients and 9 routers)
 > To stop or start the containers
-- Run `docker-compose stop` or `docker-compose stop`
-> Remember, you need to reset all default gateway on each client and each router, you can refer to the commands in [route_clean.sh](route_clean.sh) or [route_clean.ps1](route_clean.ps1
+- Run `docker-compose stop` or `docker-compose start`
+> Remember, you need to reset gateway on each client and each router everytime after docker-compose up -d or docker-compose start. You can refer to the commands in [route_clean.sh](route_clean.sh) or [route_clean.ps1](route_clean.ps1) script 
 - Run the script `route_clean.sh` or `route_clean.ps1` (windows powershell)
 
 ## Configure Routers:
