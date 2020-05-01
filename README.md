@@ -16,8 +16,8 @@ To build this IP routing lab, you need to install [Docker Desktop for Mac or Win
 
 ## Configure Routers
 
-There 3 IGP routers for each **ASN 100, 200, and 300**:
-To configure each router, you just need to run command in your powershell terminal console or iterm terminal console:
+There are 3 IGP routers, each with **ASN 100, 200, and 300**:
+To configure each router, you need to run a command in your powershell terminal console or terminal console:
 - **docker exec -it R1 vtysh**
 
 To test routing between client you can do traceroute from each client
