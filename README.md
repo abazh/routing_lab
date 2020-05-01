@@ -1,6 +1,6 @@
 # IP Routing Lab
 
-This is IP Routing lab consist 3 ASes where each AS has 3 routers and 2 clients using FRR docker image. Please refer to the topology when you are going to configure each routers.
+This IP Routing lab consists of 3 ASes where each AS has 3 routers and 2 clients using FRR docker image. Please refer to the topology when you are going to configure each router.
 ![Image of Topology](Topology_Adjar2020.jpg)
 
 ## Prerequisite
@@ -20,6 +20,6 @@ There are 3 IGP routers, each with **ASN 100, 200, and 300**:
 To configure each router, you need to run a command in your powershell terminal console or terminal console:
 - **docker exec -it R1 vtysh**
 
-To test routing between client you can do traceroute from each client
+To test routing between clients, you can do traceroute from each client
 - **docker exec -it C1 traceroute -n C10**
  
