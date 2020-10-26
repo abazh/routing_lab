@@ -136,7 +136,7 @@ services:
         ipv4_address: "10.10.1.254"
  
   C1:
-    image: nicolaka/netshoot:latest
+    image: jpetazzo/netshoot
     command: tail -f /dev/null
     hostname: C1
     container_name: C1
@@ -191,7 +191,7 @@ services:
         ipv4_address: "10.10.2.254"
  
   C2:
-    image: nicolaka/netshoot:latest
+    image: jpetazzo/netshoot
     command: tail -f /dev/null
     hostname: C2
     container_name: C2
@@ -246,7 +246,7 @@ services:
         ipv4_address: "10.10.5.254"
  
   C5:
-    image: nicolaka/netshoot:latest
+    image: jpetazzo/netshoot
     command: tail -f /dev/null
     hostname: C5
     container_name: C5
@@ -301,7 +301,7 @@ services:
         ipv4_address: "10.10.6.254"
  
   C6:
-    image: nicolaka/netshoot:latest
+    image: jpetazzo/netshoot
     command: tail -f /dev/null
     hostname: C6
     container_name: C6
@@ -356,7 +356,7 @@ services:
         ipv4_address: "10.10.9.254"
  
   C9:
-    image: nicolaka/netshoot:latest
+    image: jpetazzo/netshoot
     command: tail -f /dev/null
     hostname: C9
     container_name: C9
@@ -411,7 +411,7 @@ services:
         ipv4_address: "10.10.10.254"
  
   C10:
-    image: nicolaka/netshoot:latest
+    image: jpetazzo/netshoot
     command: tail -f /dev/null
     hostname: C10
     container_name: C10
