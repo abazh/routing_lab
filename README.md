@@ -10,8 +10,9 @@ To build this IP routing lab, you need to install [Docker Desktop for Mac or Win
 ## Clone Repo & Run docker-compose
 
 - Prepare a directory where you will clone this repo and do `git clone https://github.com/abazh/routing_lab.git`
-- Go to directory of the cloned repo
-- Run `docker-compose up -d`
+   ***!!!Warning: if you are using WSL2, please clone or extract the files in the Linux file directory: \\wsl$\ and run everything from wsl !!!
+- Go to directory of the cloned repo 
+- Run `docker-compose up -d` 
 > This docker-compose command will generate all docker containers (6 clients and 9 routers)
 > To stop or start the containers
 - Run `docker-compose stop` or `docker-compose start`
