@@ -10,22 +10,10 @@ services:
       net.ipv6.conf.all.forwarding: 1
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/BR01:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       interas0:
         ipv4_address: "10.10.120.253"
@@ -49,22 +37,10 @@ services:
       net.ipv6.conf.all.disable_ipv6: 0
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/BR02:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       interas0:
         ipv4_address: "10.10.120.254"
@@ -88,22 +64,10 @@ services:
       net.ipv6.conf.all.disable_ipv6: 0
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/BR03:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       interas1:
         ipv4_address: "10.10.100.253"
@@ -126,22 +90,10 @@ services:
       net.ipv6.conf.all.forwarding: 1
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/R1:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       router1:
         ipv4_address: "10.10.0.10"
@@ -159,19 +111,8 @@ services:
     hostname: C1
     container_name: C1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
+    volumes:
+      - ./hosts:/etc/hosts
     networks:
       client1:
         ipv4_address: "10.10.1.2"
@@ -185,22 +126,10 @@ services:
       net.ipv6.conf.all.forwarding: 1
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"  
     volumes:
       - ./config/R2:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       router2:
         ipv4_address: "10.10.0.18"
@@ -218,19 +147,8 @@ services:
     hostname: C2
     container_name: C2
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
+    volumes:
+      - ./hosts:/etc/hosts
     networks:
       client2:
         ipv4_address: "10.10.2.2"
@@ -244,22 +162,10 @@ services:
       net.ipv6.conf.all.forwarding: 1
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/R3:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       router3:
         ipv4_address: "10.10.4.10"
@@ -277,19 +183,8 @@ services:
     hostname: C5
     container_name: C5
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
+    volumes:
+      - ./hosts:/etc/hosts
     networks:
       client5:
         ipv4_address: "10.10.5.2"
@@ -303,22 +198,10 @@ services:
       net.ipv6.conf.all.forwarding: 1
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/R4:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       router4:
         ipv4_address: "10.10.4.18"
@@ -336,19 +219,8 @@ services:
     hostname: C6
     container_name: C6
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
+    volumes:
+      - ./hosts:/etc/hosts
     networks:
       client6:
         ipv4_address: "10.10.6.2"
@@ -362,22 +234,10 @@ services:
       net.ipv6.conf.all.forwarding: 1
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/R5:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       router5:
         ipv4_address: "10.10.8.10"
@@ -395,19 +255,8 @@ services:
     hostname: C9
     container_name: C9
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
+    volumes:
+      - ./hosts:/etc/hosts
     networks:
       client9:
         ipv4_address: "10.10.9.2"
@@ -421,22 +270,10 @@ services:
       net.ipv6.conf.all.forwarding: 1
       net.ipv4.ip_forward: 1
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
     volumes:
       - ./config/R6:/etc/frr
       - ./daemons:/etc/frr/daemons
+      - ./hosts:/etc/hosts
     networks:
       router6:
         ipv4_address: "10.10.8.18"
@@ -456,19 +293,8 @@ services:
     sysctls:
       net.ipv6.conf.all.disable_ipv6: 0
     privileged: true
-    extra_hosts:
-      - "C1:10.10.1.2"
-      - "C2:10.10.2.2"
-      - "C5:10.10.5.2"
-      - "C6:10.10.6.2"
-      - "C9:10.10.9.2"
-      - "C10:10.10.10.2"
-      - "R1:10.10.1.254"
-      - "R2:10.10.2.254"
-      - "R3:10.10.5.254"
-      - "R4:10.10.6.254"
-      - "R5:10.10.9.254"
-      - "R6:10.10.10.254"
+    volumes:
+      - ./hosts:/etc/hosts
     networks:
       client10:
         ipv4_address: "10.10.10.2"
