@@ -35,7 +35,7 @@ services:
         ipv6_address: "fc00:10:10:100::254"
       router1:
         ipv4_address: "10.10.0.14"
-        ipv6_address: "fc00:10:10:10::14"
+        ipv6_address: "fc00:10:10::14"
       router2:
         ipv4_address: "10.10.0.22"
         ipv6_address: "fc00:10:10:20::22"
@@ -145,7 +145,7 @@ services:
     networks:
       router1:
         ipv4_address: "10.10.0.10"
-        ipv6_address: "fc00:10:10:10::10"
+        ipv6_address: "fc00:10:10::10"
       router12:
         ipv4_address: "10.10.0.2"
         ipv6_address: "fc00:10:10:12::2"
@@ -446,7 +446,7 @@ services:
         ipv6_address: "fc00:10:10:56::254"
       client10:
         ipv4_address: "10.10.10.254"
-        ipv6_address: "fc00:10:10:a::254"
+        ipv6_address: "fc00:10:10:10::254"
  
   C10:
     image: jpetazzo/netshoot
@@ -472,7 +472,7 @@ services:
     networks:
       client10:
         ipv4_address: "10.10.10.2"
-        ipv6_address: "fc00:10:10:a::2"
+        ipv6_address: "fc00:10:10:10::2"
 
 networks:
   interas0:
@@ -498,7 +498,7 @@ networks:
     ipam: 
       config:
         - subnet: 10.10.0.8/29
-        - subnet: fc00:10:10:10::/64
+        - subnet: fc00:10:10::/64
   router2:
     enable_ipv6: true
     ipam: 
@@ -582,4 +582,4 @@ networks:
     ipam:
       config:
         - subnet: 10.10.10.0/24
-        - subnet: fc00:10:10:a::/64
+        - subnet: fc00:10:10:10::/64
