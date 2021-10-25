@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   BR01:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: BR01
     container_name: BR01
     sysctls:
@@ -29,7 +29,7 @@ services:
         ipv6_address: "fc00:10:10:20::22"
 
   BR02:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: BR02
     container_name: BR02
     sysctls:
@@ -56,7 +56,7 @@ services:
         ipv6_address: "fc00:10:10:40::22"
 
   BR03:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: BR03
     container_name: BR03
     sysctls:
@@ -83,7 +83,7 @@ services:
         ipv6_address: "fc00:10:10:60::22"
 
   R1:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: R1
     container_name: R1
     sysctls:
@@ -119,7 +119,7 @@ services:
         ipv6_address: "fc00:10:10:1::2"
 
   R2:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: R2
     container_name: R2
     sysctls:
@@ -155,7 +155,7 @@ services:
         ipv6_address: "fc00:10:10:2::2"
 
   R3:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: R3
     container_name: R3
     sysctls:
@@ -191,7 +191,7 @@ services:
         ipv6_address: "fc00:10:10:5::2"
   
   R4:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: R4
     container_name: R4
     sysctls:
@@ -227,7 +227,7 @@ services:
         ipv6_address: "fc00:10:10:6::2"
 
   R5:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: R5
     container_name: R5
     sysctls:
@@ -263,7 +263,7 @@ services:
         ipv6_address: "fc00:10:10:9::2"
 
   R6:
-    image: frrouting/frr:v7.5.1
+    image: frrouting/frr:latest
     hostname: R6
     container_name: R6
     sysctls:
