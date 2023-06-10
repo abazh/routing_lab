@@ -1,8 +1,8 @@
-version: '2.2'
+version: '3.9'
 
 services:
   BR01:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: BR01
     container_name: BR01
     sysctls:
@@ -12,7 +12,6 @@ services:
     privileged: true
     volumes:
       - ./config/BR01:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       interas0:
@@ -29,7 +28,7 @@ services:
         ipv6_address: "fc00:10:10:20::22"
 
   BR02:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: BR02
     container_name: BR02
     sysctls:
@@ -39,7 +38,6 @@ services:
     privileged: true
     volumes:
       - ./config/BR02:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       interas0:
@@ -56,7 +54,7 @@ services:
         ipv6_address: "fc00:10:10:40::22"
 
   BR03:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: BR03
     container_name: BR03
     sysctls:
@@ -66,7 +64,6 @@ services:
     privileged: true
     volumes:
       - ./config/BR03:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       interas1:
@@ -83,7 +80,7 @@ services:
         ipv6_address: "fc00:10:10:60::22"
 
   R1:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: R1
     container_name: R1
     sysctls:
@@ -92,7 +89,6 @@ services:
     privileged: true
     volumes:
       - ./config/R1:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       router1:
@@ -106,7 +102,7 @@ services:
         ipv6_address: "fc00:10:10:1::254"
  
   C1:
-    image: jpetazzo/netshoot
+    image: quay.io/truecharts/netshoot
     command: tail -f /dev/null
     hostname: C1
     container_name: C1
@@ -119,7 +115,7 @@ services:
         ipv6_address: "fc00:10:10:1::2"
 
   R2:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: R2
     container_name: R2
     sysctls:
@@ -128,7 +124,6 @@ services:
     privileged: true
     volumes:
       - ./config/R2:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       router2:
@@ -142,7 +137,7 @@ services:
         ipv6_address: "fc00:10:10:2::254"
  
   C2:
-    image: jpetazzo/netshoot
+    image: quay.io/truecharts/netshoot
     command: tail -f /dev/null
     hostname: C2
     container_name: C2
@@ -155,7 +150,7 @@ services:
         ipv6_address: "fc00:10:10:2::2"
 
   R3:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: R3
     container_name: R3
     sysctls:
@@ -164,7 +159,6 @@ services:
     privileged: true
     volumes:
       - ./config/R3:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       router3:
@@ -178,7 +172,7 @@ services:
         ipv6_address: "fc00:10:10:5::254"
  
   C5:
-    image: jpetazzo/netshoot
+    image: quay.io/truecharts/netshoot
     command: tail -f /dev/null
     hostname: C5
     container_name: C5
@@ -191,7 +185,7 @@ services:
         ipv6_address: "fc00:10:10:5::2"
   
   R4:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: R4
     container_name: R4
     sysctls:
@@ -200,7 +194,6 @@ services:
     privileged: true
     volumes:
       - ./config/R4:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       router4:
@@ -214,7 +207,7 @@ services:
         ipv6_address: "fc00:10:10:6::254"
  
   C6:
-    image: jpetazzo/netshoot
+    image: quay.io/truecharts/netshoot
     command: tail -f /dev/null
     hostname: C6
     container_name: C6
@@ -227,7 +220,7 @@ services:
         ipv6_address: "fc00:10:10:6::2"
 
   R5:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: R5
     container_name: R5
     sysctls:
@@ -236,7 +229,6 @@ services:
     privileged: true
     volumes:
       - ./config/R5:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       router5:
@@ -250,7 +242,7 @@ services:
         ipv6_address: "fc00:10:10:9::254"
  
   C9:
-    image: jpetazzo/netshoot
+    image: quay.io/truecharts/netshoot
     command: tail -f /dev/null
     hostname: C9
     container_name: C9
@@ -263,7 +255,7 @@ services:
         ipv6_address: "fc00:10:10:9::2"
 
   R6:
-    image: frrouting/frr:latest
+    image: quay.io/frrouting/frr:8.5.1
     hostname: R6
     container_name: R6
     sysctls:
@@ -272,7 +264,6 @@ services:
     privileged: true
     volumes:
       - ./config/R6:/etc/frr
-      - ./daemons:/etc/frr/daemons
       - ./hosts:/etc/hosts
     networks:
       router6:
@@ -286,7 +277,7 @@ services:
         ipv6_address: "fc00:10:10:10::254"
  
   C10:
-    image: jpetazzo/netshoot
+    image: quay.io/truecharts/netshoot
     command: tail -f /dev/null
     hostname: C10
     container_name: C10
@@ -302,108 +293,144 @@ services:
 
 networks:
   interas0:
+    name: interas0
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.120.0/24
         - subnet: fc00:10:10:120::/64
   interas1:
+    name: interas1
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.100.0/24
         - subnet: fc00:10:10:100::/64
   interas2:
+    name: interas2
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.200.0/24
         - subnet: fc00:10:10:200::/64
   router1:
+    name: router1
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.0.8/29
         - subnet: fc00:10:10::/64
   router2:
+    name: router2
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.0.16/29
         - subnet: fc00:10:10:20::/64
   router12:
+    name: router12
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config: 
         - subnet: 10.10.0.0/29
         - subnet: fc00:10:10:12::/64
   router3:
+    name: router3
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.4.8/29
         - subnet: fc00:10:10:30::/64
   router4:
+    name: router4
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.4.16/29
         - subnet: fc00:10:10:40::/64
   router34:
+    name: router34
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config: 
         - subnet: 10.10.4.0/29
         - subnet: fc00:10:10:34::/64
   router5:
+    name: router5
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.8.8/29
         - subnet: fc00:10:10:50::/64
   router6:
+    name: router6
+    driver: macvlan
     enable_ipv6: true
     ipam: 
       config:
         - subnet: 10.10.8.16/29
         - subnet: fc00:10:10:60::/64
   router56:
+    name: router56
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config: 
         - subnet: 10.10.8.0/29
         - subnet: fc00:10:10:56::/64
   client1:
+    name: client1
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config:
         - subnet: 10.10.1.0/24
         - subnet: fc00:10:10:1::/64
   client2:
+    name: client2
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config:
         - subnet: 10.10.2.0/24
         - subnet: fc00:10:10:2::/64
   client5:
+    name: client5
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config:
         - subnet: 10.10.5.0/24
         - subnet: fc00:10:10:5::/64
   client6:
+    name: client6
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config:
         - subnet: 10.10.6.0/24
         - subnet: fc00:10:10:6::/64
   client9:
+    name: client9
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config:
         - subnet: 10.10.9.0/24
         - subnet: fc00:10:10:9::/64
   client10:
+    name: client10
+    driver: macvlan
     enable_ipv6: true
     ipam:
       config:
