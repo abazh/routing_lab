@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   BR01:
     image: quay.io/frrouting/frr:8.5.1
@@ -102,7 +100,7 @@ services:
         ipv6_address: "fc00:10:10:1::254"
  
   C1:
-    image: quay.io/truecharts/netshoot
+    image: nicolaka/netshoot
     command: tail -f /dev/null
     hostname: C1
     container_name: C1
@@ -137,7 +135,7 @@ services:
         ipv6_address: "fc00:10:10:2::254"
  
   C2:
-    image: quay.io/truecharts/netshoot
+    image: nicolaka/netshoot
     command: tail -f /dev/null
     hostname: C2
     container_name: C2
@@ -172,7 +170,7 @@ services:
         ipv6_address: "fc00:10:10:5::254"
  
   C5:
-    image: quay.io/truecharts/netshoot
+    image: nicolaka/netshoot
     command: tail -f /dev/null
     hostname: C5
     container_name: C5
@@ -207,7 +205,7 @@ services:
         ipv6_address: "fc00:10:10:6::254"
  
   C6:
-    image: quay.io/truecharts/netshoot
+    image: nicolaka/netshoot
     command: tail -f /dev/null
     hostname: C6
     container_name: C6
@@ -242,7 +240,7 @@ services:
         ipv6_address: "fc00:10:10:9::254"
  
   C9:
-    image: quay.io/truecharts/netshoot
+    image: nicolaka/netshoot
     command: tail -f /dev/null
     hostname: C9
     container_name: C9
@@ -277,7 +275,7 @@ services:
         ipv6_address: "fc00:10:10:10::254"
  
   C10:
-    image: quay.io/truecharts/netshoot
+    image: nicolaka/netshoot
     command: tail -f /dev/null
     hostname: C10
     container_name: C10
